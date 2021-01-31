@@ -161,6 +161,7 @@ Other contributors, listed alphabetically, are:
 * Jonas Obrist -- BBCode lexer
 * Edward O'Callaghan -- Cryptol lexer
 * David Oliva -- Rebol lexer
+* Alexis Olson -- DAX lexer
 * Pat Pannuto -- nesC lexer
 * Jon Parise -- Protocol buffers and Thrift lexers
 * Benjamin Peterson -- Test suite refactoring
