@@ -124,6 +124,7 @@ LEXERS = {
     'DarcsPatchLexer': ('pygments.lexers.diff', 'Darcs Patch', ('dpatch',), ('*.dpatch', '*.darcspatch'), ()),
     'DartLexer': ('pygments.lexers.javascript', 'Dart', ('dart',), ('*.dart',), ('text/x-dart',)),
     'Dasm16Lexer': ('pygments.lexers.asm', 'DASM16', ('dasm16',), ('*.dasm16', '*.dasm'), ('text/x-dasm16',)),
+    'DAXLexer': ('pygments.lexers.dax', 'DAX', ('dax',), ('*.dax',), ('text/x-dax',)),
     'DebianControlLexer': ('pygments.lexers.installers', 'Debian Control file', ('control', 'debcontrol'), ('control',), ()),
     'DelphiLexer': ('pygments.lexers.pascal', 'Delphi', ('delphi', 'pas', 'pascal', 'objectpascal'), ('*.pas', '*.dpr'), ('text/x-pascal',)),
     'DevicetreeLexer': ('pygments.lexers.devicetree', 'Devicetree', ('devicetree', 'dts'), ('*.dts', '*.dtsi'), ('text/x-c',)),
