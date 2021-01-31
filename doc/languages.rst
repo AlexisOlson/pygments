@@ -48,6 +48,7 @@ Programming languages
 * `Cypher <https://neo4j.com/developer/cypher-query-language/>`_
 * `Cython <https://cython.org>`_
 * `D <https://dlang.org>`_
+* `DAX <https://docs.microsoft.com/en-us/dax/>`_
 * `Dart <https://dart.dev/>`_
 * DCPU-16
 * `Delphi <https://www.embarcadero.com/products/delphi>`_
