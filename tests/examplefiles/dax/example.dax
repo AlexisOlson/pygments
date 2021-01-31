@@ -1,0 +1,45 @@
+/* Example 1: */
+// Source: https://www.sqlbi.com/articles/introducing-summarizecolumns/
+-- Author: Marco Russo
+/* Published: Jan 30, 2017
+   Updated:   Aug 17, 2020 */
+
+Sales by Year and Color correction summarizecolumns with subtotals =
+SUMMARIZECOLUMNS (
+    ROLLUPADDISSUBTOTAL ( 'Date'[Calendar Year Number], "All Years" ),
+    'Product'[Color],
+    "Sales Amount",
+        VAR delta =
+            IF (
+                HASONEVALUE ( 'Date'[Calendar Year Number] ),
+                VALUES ( 'Date'[Calendar Year Number] ) - 2007,
+                0
+            )
+        VAR correction = 1 + ( delta / 100 )
+        RETURN
+            correction
+                * SUMX ( Sales, [Quantity] * Sales[Unit Price] )
+)
+
+/* Example 2: */
+// Source: https://www.sqlbi.com/articles/best-practices-using-summarize-and-addcolumns/
+-- Author: Marco Russo
+/* Published: Aug 31, 2012
+   Updated:   Aug 17, 2020 */
+
+DEFINE
+    MEASURE 'Internet Sales'[Price Level] =
+        POWER ( 10, 1 + INT ( LOG10 ( VALUES ( 'Internet Sales'[Unit Price] ) ) ) )
+EVALUATE
+ADDCOLUMNS (
+    SUMMARIZE (
+        ADDCOLUMNS ( 'Internet Sales', "Price Level", [Price Level] ),
+        [Price Level]
+    ),
+    "Total Sales",
+        CALCULATE (
+            SUM ( 'Internet Sales'[Sales Amount] ),
+            FILTER ( 'Internet Sales', [Price Level] = 'Internet Sales'[Price Level] )
+        )
+)
+ORDER BY [Price Level]
